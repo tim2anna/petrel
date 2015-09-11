@@ -1,0 +1,12 @@
+backports.ssl-match-hostname==3.4.0.2
+certifi==2015.9.6.2
+easydict==1.6
+greenlet==0.4.9
+motor==0.2
+motorengine==0.9.0
+pyconvert==0.6.3
+pymongo==2.7
+pyrestful==0.4.1
+six==1.9.0
+tornado==4.2.1
+WTForms==2.0.2
