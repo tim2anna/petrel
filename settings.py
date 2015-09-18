@@ -2,27 +2,31 @@
 #-*- coding:utf-8 -*-
 
 
-DATABASES = {
-    'web': {
-        'url': 'mysql://root:123456@localhost/iqms_web',
-        'encoding': 'utf-8',
-        'echo': True,
-    },
-    'pbnet': {
-        'url': 'mysql://root:123456@localhost/iqms_pbnet',
-        'encoding': 'utf-8',
-        'echo': True,
-    },
-    'mem': {
-        'url': 'mysql://root:123456@localhost/iqms_mem',
-        'encoding': 'utf-8',
-        'echo': True,
-    },
-}
+import os
+
 
 INSTALLED_APPS = [
     'auth',
 ]
+
+
+app_settings = {
+    "template_path": os.path.join(os.path.dirname(__file__), "templates"),
+    "debug": True,
+    "session": {
+        'engine': 'memcached',
+        'storage': {'servers': ('localhost:11211',)},
+        'cookies': {'expires_days': 120},
+    }
+}
+
+SERVER_PORT = 8888
+
+MONGODB_CONNECT = {
+    'database': 'petrel',
+    'host': 'localhost',
+    'port': 27017
+}
 
 try:
     from local_settings import *
